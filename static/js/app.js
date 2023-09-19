@@ -51,7 +51,7 @@ function updateCharts(subject) {
         //xaxis: { title: "Sample Values" },
         //yaxis: { title: "OTU Labels" },
         width: 400,
-        height: 400,
+        height: 415,
         margin: {
             l: 75,
             r: 0,
@@ -88,7 +88,12 @@ function createBubbleChart(subject) {
         showlegend: false,
         width: 1000,
         height: 400,
-
+        margin: {
+            l: 75,
+            r: 0,
+            b: 25,
+            t: 50
+        }
     };
 
     Plotly.newPlot("bubble", data, layout);
@@ -96,13 +101,13 @@ function createBubbleChart(subject) {
 
 // Function to display sample metadata
 function displaySampleMetadata(metadata) {
-    // Select the HTML element where you want to display the metadata
+    // Select the metadata HTML element
     const metadataDiv = d3.select("#sample-metadata");
 
-    // Clear any existing content in the div
+    // Clear any existing content
     metadataDiv.html("");
 
-    // Loop through the metadata object and append key-value pairs to the div
+    // Loop through the metadata object and append key-value pairs
     Object.entries(metadata).forEach(([key, value]) => {
         metadataDiv.append("p").text(`${key}: ${value}`);
     });
